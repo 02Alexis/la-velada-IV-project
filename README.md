@@ -1,38 +1,55 @@
-<h1 align="center">Bienvenidos a la...</h3>
+<a name="readme-top"></a>
 
-![Logo - La Velada IV](https://github.com/midudev/la-velada-web-oficial/assets/1561955/4f76305d-9ed2-40b8-b189-355235f5ad6e)
+<div align="center">
 
-# Web Oficial de La Velada IV
+<a href="https://github.com/midudev/la-velada-web-oficial">
+  <img src="https://github.com/02Alexis/la-velada-IV-project/assets/99287560/7538e63f-76e1-4665-a899-81ab5d70d9f9" alt="Logo" width="800" />
+</a>
 
-## <p align="center">Basado en el diseño de<a href="https://youtu.be/BVnhDlbhPvs?si=C8PCSGT5yBIjOr0W" target="_blank"> MiduDev</a></p>
+## Web oficial de La Velada IV
 
-![Logo - La Velada IV](https://img.youtube.com/vi/BVnhDlbhPvs/maxresdefault.jpg)
+La Velada IV es una competición de boxeo que enfrenta a streamers, creadores de contenido y otras celebridades sobre un ring.\
+[Reportar error](https://github.com/midudev/la-velada-web-oficial/issues) · [Sugerir algo](https://github.com/midudev/la-velada-web-oficial/issues)
 
+</div>
 
-## Descripción
+<details>
+<summary>Tabla de contenidos</summary>
 
-La Velada IV es una competición de boxeo que enfrenta a Streamers, Creadores de Contenido y otras Celebridades sobre un ring.
+1. [Características principales](#características-principales)
+2. [Para empezar](#para-empezar)
+   - [Instalación](#instalación)
 
-## Características Principales
+</details>
 
-- **Detalles del Evento:** Obtén información detallada sobre la fecha, hora, ubicación y artistas participantes.
-- **Compra de Boletos:** Permite a los usuarios dirigirlos a la compra de boletos fácilmente.
-- **Redes Sociales:** Conoce las redes oficiales donde podrás informarte sobre el evento.
+## Características principales
+
+- **Detalles del evento**: Obtén información detallada sobre la fecha, hora, ubicación y artistas participantes.
+- **Compra de boletos**: Permite a los usuarios dirigirlos a la compra de boletos fácilmente.
+- **Redes sociales**: Conoce las redes oficiales donde podrás informarte sobre el evento.
+
+### Capturas de pantalla de la web de La Velada IV:
+
+![Captura de pantalla en móvil](https://github.com/02Alexis/la-velada-IV-project/assets/99287560/4c6f6009-80bc-455d-8e25-99aa7f36143a)
+![Captura de pantalla en ordenador](https://github.com/02Alexis/la-velada-IV-project/assets/99287560/534caa9e-6aca-4942-b949-ad80982fd110)
+
+<p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 
 ## Para empezar
+
 
 ### Instalación
 
 1. Clona el repositorio
 
    ```sh
-   git clone https://github.com/02Alexis/la-velada-web-project.git
+   git clone https://github.com/02Alexis/la-velada-IV-project.git
    ```
 
-3. Navega hasta el directorio
+2. Navega hasta el directorio
 
    ```sh
-   cd la-velada-web-project
+   cd la-velada-IV-project
    ```
 
 3. Instala los paquetes de NPM
@@ -47,11 +64,7 @@ La Velada IV es una competición de boxeo que enfrenta a Streamers, Creadores de
    npm run dev
    ```
 
-## Capturas de Pantalla
-![Captura de Pantalla de la web en pc](https://github.com/02Alexis/la-velada-web-project/assets/99287560/932188a7-263b-4f6c-967f-9c9f8e311b42)
-
-![Captura de Pantalla de la web en mobile](https://github.com/02Alexis/la-velada-web-project/assets/99287560/3fa38423-29cb-469d-a288-c7108b44204a)
-
+<p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 
 ## 🛠️ Stack
 
