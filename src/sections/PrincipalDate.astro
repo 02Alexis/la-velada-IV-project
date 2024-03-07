@@ -1,0 +1,51 @@
+<section
+  class="animate-fade-in animate-delay-500 mt-32 mx-auto flex flex-col place-items-center text-center text-primary"
+>
+  <h2 class="uppercase text-5xl font-semibold">
+    4 de marzo
+    <span aria-hidden class="hidden md:inline mx-1">·</span>
+    <br aria-hidden class="block md:hidden" />
+    <span>
+      <script is:inline>
+        const END_DATE_COMBAT = 1709769600000;
+        const d = new Date(END_DATE_COMBAT);
+        const date = d.toLocaleTimeString("es", {
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+        // obtener zona horaria actual
+        const tzOffset = d.getTimezoneOffset() / 60;
+        const diff = tzOffset * -1;
+        const gmt = diff > 0 ? `GMT+${diff}` : `GMT-${Math.abs(diff)}`;
+
+        const TZ_DICTIONARY = {
+          "GMT-5": "CET",
+        };
+
+        const tz = TZ_DICTIONARY[gmt] ?? gmt;
+
+        const selfScript = document.currentScript;
+        selfScript.parentNode.innerHTML = `${date} H ${tz}`;
+      </script>
+    </span>
+  </h2>
+
+  <h3 class="uppercase text-2xl font-medium flex flex-col max-w-sm mt-6">
+    <span>Evento de Presentación</span>
+    <span>Teatro Victoria (Barcelona)</span>
+  </h3>
+
+  <a
+    class={`
+    border-primary border-2 font-medium uppercase text-lg
+    px-4 py-1 mt-8
+    hover:bg-slate-300 hover:scale-125
+    transition inline-block
+  `}
+    href="https://www.teatrevictoria.com/es/cartelera/c/190_la-velada-del-ano-4.html"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Entradas agotadas
+  </a>
+</section>
