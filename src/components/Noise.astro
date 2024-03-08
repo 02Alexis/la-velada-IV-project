@@ -1,58 +1,80 @@
-<div></div>
+<canvas
+  id="noise"
+  aria-label="Efecto de ruido de fondo"
+  class="fixed top-0 -z-10 animate-fade-in"></canvas>
 
-<style>
-  div {
-    position: fixed;
-    background-color: rgba(0, 86, 0, 0.091);
-    background-image: url(/noise.png);
-    background-repeat: repeat;
-    inset: -50%;
-    height: 200vh;
-    width: 200%;
-    pointer-events: none;
+<script>
+  let wWidth: number, wHeight: number;
+  const noiseData: ImageData[] = [];
+  let frame: number = 0;
+  let loopTimeout: number;
+  let resizeThrottle: number;
 
-    animation: noise 0.2s infinite;
+  const canvas = document.getElementById("noise") as HTMLCanvasElement;
+  const ctx = canvas.getContext("2d");
+
+  if (!ctx) {
+    throw new Error("2D context not supported or canvas not found");
   }
 
-  @keyframes noise {
-    0% {
-      transform: translate3d(0, 0, 0);
-    }
-    10% {
-      transform: translate3d(-5%, -5%, 0);
-    }
-    20% {
-      transform: translate3d(-10%, 5%, 0);
-    }
-    30% {
-      transform: translate3d(5%, -10%, 0);
-    }
-    40% {
-      transform: translate3d(-5%, 15%, 0);
-    }
-    50% {
-      transform: translate3d(-10%, 5%, 0);
-    }
-    60% {
-      transform: translate3d(15%, 0, 0);
-    }
-    70% {
-      transform: translate3d(15%, 15%, 0);
-    }
-    80% {
-      transform: translate3d(10%, 5%, 0);
-    }
-    90% {
-      transform: translate3d(5%, 10%, 0);
-    }
-    100% {
-      transform: translate3d(0, 0, 0);
-    }
-  }
+  const createNoise = () => {
+    const idata: ImageData = ctx.createImageData(wWidth, wHeight);
+    const buffer32: Uint32Array = new Uint32Array(idata.data.buffer);
+    let len: number = buffer32.length;
 
-  @media (prefers-reduced-motion: reduce) {
-    div {
-      animation: none;
+    while (len--) {
+      buffer32[len] = ((Math.random() * 70) | 0) << 24;
     }
-  }
-</style>
+
+    noiseData.push(idata);
+  };
+
+  const paintNoise = () => {
+    if (frame === 9) {
+      frame = 0;
+    } else {
+      frame++;
+    }
+
+    ctx.putImageData(noiseData[frame], 0, 0);
+  };
+
+  const loop = () => {
+    paintNoise();
+
+    loopTimeout = window.setTimeout(() => {
+      window.requestAnimationFrame(loop);
+    }, 1000 / 25) as unknown as number;
+  };
+
+  const setup = () => {
+    wWidth = window.innerWidth;
+    wHeight = window.innerHeight + 100;
+
+    canvas.width = wWidth;
+    canvas.height = wHeight;
+
+    noiseData.length = 0;
+
+    for (let i = 0; i < 10; i++) {
+      createNoise();
+    }
+
+    loop();
+  };
+
+  setup();
+
+  window.addEventListener(
+    "resize",
+    () => {
+      window.clearTimeout(resizeThrottle);
+
+      resizeThrottle = window.setTimeout(() => {
+        window.clearTimeout(loopTimeout);
+        setup();
+      }, 200) as unknown as number;
+    },
+    false
+  );
+</script>

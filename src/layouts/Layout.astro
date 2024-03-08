@@ -1,5 +1,6 @@
 ---
 import "@fontsource-variable/jost";
+import LightsBackground from "@/components/LightsBackground.astro"
 import Noise from "@/components/Noise.astro";
 import ButtonUp from "@/components/ButtonUp.astro";
 
@@ -24,9 +25,10 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body
-    class="[&_:focus-visible]:outline-none [&_:focus-visible]:ring-2 [&_:focus-visible]:ring-primary"
+    class="overflow-x-hidden selection:bg-accent [&_:focus-visible]:outline-none [&_:focus-visible]:ring-2 [&_:focus-visible]:ring-primary"
   >
     <Noise />
+    <LightsBackground />
     <div
       class="mx-auto max-w-6xl px-2 pt-16 selection:bg-primary selection:text-secondary md:pt-20 lg:px-10"
       id="main-content"
